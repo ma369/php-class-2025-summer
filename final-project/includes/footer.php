@@ -52,7 +52,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <p class="mb-0 text-light">
-                        &copy; 2024 BlogPlatform. All rights reserved.
+                        &copy; 2025 BlogPlatform. All rights reserved.
                     </p>
                 </div>
                 <div class="col-md-6 text-md-end">
