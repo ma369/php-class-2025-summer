@@ -1,0 +1,41 @@
+# Security and optimization settings for InfinityFree
+
+# Prevent access to sensitive files
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "database.sql">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Prevent access to PHP files in uploads directory
+<Files "uploads/*.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Redirect root to public folder
+RewriteEngine On
+RewriteRule ^$ public/index.php [L]
+RewriteRule ^index\.php$ public/index.php [L]
+
+# Custom error pages
+ErrorDocument 404 /public/index.php
+ErrorDocument 403 /public/index.php
+
+# Force HTTPS (recommended)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
