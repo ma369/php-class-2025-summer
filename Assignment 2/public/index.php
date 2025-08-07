@@ -38,9 +38,6 @@ include '../includes/header.php';
 </div>
 
 <div class="text-center">
-    <h2>🎉 Your CRUD Application is Working!</h2>
-    <p class="text-muted">Database connection successful. Ready to start managing your content.</p>
-    
     <?php if (!isLoggedIn()): ?>
         <div class="mt-4">
             <a href="login.php" class="btn btn-primary me-2">Login</a>
